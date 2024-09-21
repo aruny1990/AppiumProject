@@ -1,0 +1,53 @@
+Appium - nodejs - npm install -g appium
+
+Devices - Two Types - Real Device - Vysor App - It will be shown on yoyur desktop
+2) Emulator - Virtual Device - You can give configuration - Andriod studio - Configuration
+
+Inspect element of mobile application - Appium Inspector to inspect ot mobile elements
+
+Mobile App - Two Type - Native Application - Calculator App
+Web Application - Chrome application on mobile
+
+sdk Tools - you have to download and setup the path - Platform tools folder - adb.bat/adb.exe
+adb - use for finding the device Id and the version of your andriod
+
+
+Commands for finding Device Id:
+adb devices
+
+Command for finding the Device version:
+adb shell getprop ro.build.version.release
+
+
+Dependencies required for Appium automation setup:
+1) Java-client --> io.appium - group Id
+2) coomon.lang3 --> org.appache.commons - groupId
+3) Selenium-server-4.24.0 jar file
+
+Appium Server should be on before running the appium test case
+
+How to find the appPackage and appActivity
+>>adb shell
+OP4F39L1:/ $ dumpsys window displays | grep -e 'mCurrentFocus'
+		//  mCurrentFocus=Window{57fa581 u0 com.google.android.dialer/com.google.android.dialer.extensions.GoogleDialtactsActivity}
+		
+
+Pre-requisite before starting the appium inspector
+>>C:\Users\User>appium --allow-cors -This command will help to set the cross origin policy so that appium inspector can communicate
+
+And In order to get the session of the mobile application we need to send the certian properties using JSON representation.
+
+{
+  "automationName": "UiAutomator2",
+  "platformName": "Android",
+  "platformVersion": "13",
+  "deviceName": "ca827b46 ",
+  "appPackage": "com.coloros.calculator",
+  "appActivity": "com.android.calculator2.Calculator"
+}
+
+
+
+For automating web app in mobile:
+//apium server should be up and running and open chrome in mobile and connect ot desktop and open chrome in desktop and enter chrome://inspect/#devices
+//click on inspect
